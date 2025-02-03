@@ -1,20 +1,22 @@
 export const queries = {
+  // Enable the uuid-ossp extension
+  enableUUIDExtension: `CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`,
+
   // Create blogs table
   createBlogsTable: `
       CREATE TABLE IF NOT EXISTS blogs (
-        id UUID PRIMARY KEY DEFAULT get_random_uuid(),
+        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         title VARCHAR(255) NOT NULL,
         slug VARCHAR(255) UNIQUE NOT NULL,
         content TEXT NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP        
       );
     `,
 
   // Create tags table
   createTagsTable: `
       CREATE TABLE IF NOT EXISTS tags (
-        id UUID PRIMARY KEY DEFAULT get_random_uuid(),
+        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         tagName VARCHAR(50) UNIQUE NOT NULL 
       );
     `,

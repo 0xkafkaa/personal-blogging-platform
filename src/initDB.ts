@@ -2,6 +2,7 @@ import pool from "./database";
 import { queries } from "./queries";
 async function initializeDatabase() {
   try {
+    await pool.query(queries.enableUUIDExtension);
     await pool.query(queries.createBlogsTable);
     console.log("Blogs table created or already exists.");
     await pool.query(queries.createTagsTable);
@@ -13,4 +14,4 @@ async function initializeDatabase() {
   }
 }
 
-initializeDatabase();
+export default initializeDatabase;
