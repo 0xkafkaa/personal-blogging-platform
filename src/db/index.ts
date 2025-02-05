@@ -1,5 +1,6 @@
 import pg from "pg";
 import dotenv from "dotenv";
+import { drizzle } from "drizzle-orm/node-postgres";
 dotenv.config();
 const { Pool } = pg;
 
@@ -10,4 +11,5 @@ const pool = new Pool({
   database: process.env.DATABASE,
 });
 
-export default pool;
+const db = drizzle({ client: pool });
+export default db;
