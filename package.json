@@ -12,8 +12,10 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
+    "@faker-js/faker": "^9.4.0",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.39.1",
+    "drizzle-seed": "^0.3.1",
     "express": "^4.21.2",
     "pg": "^8.13.1"
   },
